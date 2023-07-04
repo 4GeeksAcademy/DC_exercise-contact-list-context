@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
+import { Context } from "../store/appContext.js";
+
 
 export const Home = () => {
+	const { actions, store } = useContext(Context);
+
+
+	useEffect(() => {
+		actions.añadirContacto();
+	}, []);
 
 		return (
 			<div className="text-center mt-5">
