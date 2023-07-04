@@ -2,13 +2,29 @@ const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			//Your data structures, A.K.A Entities
-			contactos: []
+			contactos: [],
+			nombre: "",
+			email: "",
+			tlf: "",
+			dir: ""
 
 			// color: "No hay color"
 		},
 		actions: {
 			//(Arrow) Functions that update the Store
 			// Remember to use the scope: scope.state.store & scope.setState()
+			añadirNombre: () => {
+				setStore({nombre: "FF"});
+			},
+			añadirEmail: () => {
+				setStore({ email: "Rojo" });
+			},
+			añadirTlf: () => {
+				setStore({ tlf: "Rojo" });
+			},
+			añadirDir: () => {
+				setStore({ dir: "Rojo" });
+			}
 			añadirContacto: () => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/Dcardigo", {
 					method: "POST",
@@ -25,9 +41,9 @@ const getState = ({ getStore, setStore }) => {
 						}
 					])
 				})
-					.then(response => console.log(response.ok))
-					.then(data => console.log(data))
-					.catch(error => console.log(error));
+					.then((response) => response.json())
+					.then((data) => console.log(data))
+					.catch((error) => console.log(error));
 			}
 			// cambiarColor: () => {
 			// 	setStore({ color: "Rojo" });
