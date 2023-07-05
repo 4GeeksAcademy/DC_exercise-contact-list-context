@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AddContact = () => {
+	// const [nombre, setNombre] = useState("");
+
 	const { store, actions } = useContext(Context);
-
 	console.log(store.nombre);
-
 	return (
 		<div className="container">
 			<div>
@@ -17,9 +17,10 @@ export const AddContact = () => {
 						<input
 							type="text"
 							value={store.nombre}
-							onChange={e => actions.añadirNombre(e.target.value)}
+							// value={nombre}
 							className="form-control"
 							placeholder="Full Name"
+							onChange={e => actions.addNombre({ nombre: e.target.value })}
 						/>
 					</div>
 
