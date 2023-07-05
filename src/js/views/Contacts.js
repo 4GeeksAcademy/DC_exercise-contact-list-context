@@ -37,11 +37,6 @@ export const Contacts = () => {
 								phone={item.phone}
 							/>
 						))}
-
-						{/* <ContactCard onDelete={() => setState({ showModal: true })} />
-						<ContactCard />
-						<ContactCard />
-						<ContactCard /> */}
 					</ul>
 				</div>
 			</div>
