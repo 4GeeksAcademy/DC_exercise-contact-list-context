@@ -17,7 +17,7 @@ const getState = ({ getStore, setStore }) => {
 					.catch(error => console.log(error));
 			},
 
-			addContacto: (full_name, email, address, phone) => {
+			addContacto: (full_name, email, phone, address) => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/", {
 					method: "POST",
 					headers: {
@@ -35,8 +35,9 @@ const getState = ({ getStore, setStore }) => {
 					.then(data => console.log(data))
 					.catch(error => console.log(error));
 			},
-			delContacto: () => {
-				fetch("https://assets.breatheco.de/apis/fake/contact/5089", {
+
+			delContacto: id => {
+				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
 					method: "DELETE"
 				})
 					.then(response => response.json())

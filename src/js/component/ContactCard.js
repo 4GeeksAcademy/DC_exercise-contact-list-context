@@ -8,14 +8,26 @@ export const ContactCard = props => {
 	const { actions, store } = useContext(Context);
 
 	const handleDelete = e => {
-		actions.delContacto();
+		e.preventDefault();
+		actions.delContacto(props.id);
+		// 	// 	//ademas tiene que recargar la página.
 	};
+
+	// const [visible, setVisible] = useState(true);
+
+	// const contacto = () => {
+	// 	if (visible === true) {
+	// 		<button className="btn" onClick={() => setVisible(!visible)}>
+	// 			<i className="fas fa-trash-alt" onClick={handleDelete} />
+	// 		</button>;
+	// 	} else {
+	// 		("");
+	// 	}
+	// };
 
 	const [state, setState] = useState({
 		//initialize state here
 	});
-
-	// console.log(props.id);
 
 	return (
 		<li className="list-group-item">
@@ -29,9 +41,10 @@ export const ContactCard = props => {
 							<i className="fas fa-pencil-alt mr-3" />
 						</button>
 						{/* <button className="btn" onClick={() => props.onDelete()}> */}
-						<button className="btn" onClick={handleDelete()}>
-							<i className="fas fa-trash-alt" />
+						<button className="btn" onClick={() => setVisible(!visible)}>
+							<i className="fas fa-trash-alt" onClick={handleDelete} />
 						</button>
+						{/* {contacto} */}
 					</div>
 					<label className="name lead">{props.nombre}</label>
 					<br />
@@ -69,9 +82,9 @@ ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
 	email: PropTypes.string,
-	id: PropTypes.number,
+	id: PropTypes.string,
 	address: PropTypes.string,
-	phone: PropTypes.number,
+	phone: PropTypes.string,
 	nombre: PropTypes.string
 };
 

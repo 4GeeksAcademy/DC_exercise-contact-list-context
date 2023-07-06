@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -12,14 +12,13 @@ export const AddContact = () => {
 
 	const handlerSubmit = e => {
 		e.preventDefault(); //Evita que la página se recargue y se borren los estados.
-		actions.addContacto(full_name, email, address, phone);
+		actions.addContacto(full_name, email, phone, address);
 		setFull_name("");
 		setEmail("");
-		setAddress("");
 		setPhone("");
+		setAddress("");
 	};
 
-	console.log(phone);
 	return (
 		<div className="container">
 			<div>
