@@ -5,7 +5,11 @@ import MikePhoto from "../../img/m101.jpg";
 import { Context } from "../store/appContext";
 
 export const ContactCard = props => {
-	const { store } = useContext(Context);
+	const { actions, store } = useContext(Context);
+
+	const handleDelete = e => {
+		actions.delContacto();
+	};
 
 	const [state, setState] = useState({
 		//initialize state here
@@ -24,7 +28,8 @@ export const ContactCard = props => {
 						<button className="btn">
 							<i className="fas fa-pencil-alt mr-3" />
 						</button>
-						<button className="btn" onClick={() => props.onDelete()}>
+						{/* <button className="btn" onClick={() => props.onDelete()}> */}
+						<button className="btn" onClick={handleDelete()}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>

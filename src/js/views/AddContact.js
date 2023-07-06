@@ -24,7 +24,6 @@ export const AddContact = () => {
 		<div className="container">
 			<div>
 				<h1 className="text-center mt-5">Add a new contact</h1>
-				{/* <form onSubmit={e => handlerSubmit(e)}> */}
 				<form onSubmit={handlerSubmit}>
 					<div className="form-group">
 						<label>Full Name</label>

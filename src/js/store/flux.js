@@ -34,6 +34,14 @@ const getState = ({ getStore, setStore }) => {
 					.then(response => response.json())
 					.then(data => console.log(data))
 					.catch(error => console.log(error));
+			},
+			delContacto: () => {
+				fetch("https://assets.breatheco.de/apis/fake/contact/5089", {
+					method: "DELETE"
+				})
+					.then(response => response.json())
+					.then(data => console.log(data))
+					.catch(error => console.log(error));
 			}
 		}
 	};
