@@ -2,7 +2,7 @@ import React, { useContext, useState, useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const AddNewContact = () => {
+export const EditContact = () => {
 	const { store, actions } = useContext(Context);
 	const [full_name, setFull_name] = useState(store.nombre);
 	const [email, setEmail] = useState(store.email);
