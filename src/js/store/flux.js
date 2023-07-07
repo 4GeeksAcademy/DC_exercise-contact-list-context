@@ -1,4 +1,4 @@
-const getState = ({ getStore, setStore }) => {
+const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
 			//Your data structures, A.K.A Entities
@@ -40,7 +40,14 @@ const getState = ({ getStore, setStore }) => {
 				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
 					method: "DELETE"
 				})
-					.then(response => response.json())
+					.then(response => {
+						console.log(response.ok);
+
+						if (response.ok === true) {
+							getActions().getContactos();
+						}
+						return response.json();
+					})
 					.then(data => console.log(data))
 					.catch(error => console.log(error));
 			}
