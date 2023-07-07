@@ -2,24 +2,22 @@ import React, { useContext, useState, useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const AddContact = () => {
-	const [full_name, setFull_name] = useState("");
-	const [email, setEmail] = useState("");
-	const [address, setAddress] = useState("");
-	const [phone, setPhone] = useState("");
-
+export const AddNewContact = () => {
 	const { store, actions } = useContext(Context);
+	const [full_name, setFull_name] = useState(store.nombre);
+	const [email, setEmail] = useState(store.email);
+	const [address, setAddress] = useState(store.address);
+	const [phone, setPhone] = useState(store.phone);
 
 	const handlerSubmit = e => {
 		e.preventDefault(); //Evita que la página se recargue y se borren los estados.
-		actions.addContacto(full_name, email, phone, address);
+		actions.upDate(full_name, address, phone, email, store.id);
 		setFull_name("");
 		setEmail("");
 		setPhone("");
 		setAddress("");
 	};
-	// // actions.addName(full_name);
-	// console.log(store.nombre);
+
 	return (
 		<div className="container">
 			<div>

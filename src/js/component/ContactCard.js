@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const ContactCard = props => {
 	const { actions, store } = useContext(Context);
@@ -10,6 +11,9 @@ export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
+	const handlerContact = e => {
+		actions.addValues(props.nombre, props.address, props.phone, props.email, props.id);
+	};
 
 	return (
 		<li className="list-group-item">
@@ -19,9 +23,12 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<button className="btn">
+						{/* <button className="btn" to="/edit">
 							<i className="fas fa-pencil-alt mr-3" />
-						</button>
+						</button> */}
+						<Link className="btn btn-success" to="/edit" onClick={handlerContact}>
+							<i className="fas fa-pencil-alt mr-3" />
+						</Link>
 						<button className="btn" onClick={() => props.onDelete()}>
 							<i className="fas fa-trash-alt" />
 						</button>
@@ -46,6 +53,8 @@ export const ContactCard = props => {
 						title=""
 					/>
 					<span className="text-muted small text-truncate">{props.email}</span>
+					<br />
+					<span className="text-muted small text-truncate">{props.id}</span>
 				</div>
 			</div>
 		</li>

@@ -3,14 +3,22 @@ const getState = ({ getStore, setStore, getActions }) => {
 		store: {
 			//Your data structures, A.K.A Entities
 			contactos: [],
-			nombre: ""
+			nombre: "",
+			address: "",
+			phone: "",
+			email: "",
+			id: ""
 		},
 		actions: {
 			//(Arrow) Functions that update the Store
 			// Remember to use the scope: scope.state.store & scope.setState()
 
-			addName: name => {
+			addValues: (name, dir, tlf, mail, id) => {
 				setStore({ nombre: name });
+				setStore({ address: dir });
+				setStore({ phone: tlf });
+				setStore({ email: mail });
+				setStore({ id: id });
 			},
 
 			getContactos: () => {
@@ -55,26 +63,26 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.then(data => console.log(data))
 					.catch(error => console.log(error));
-			}
+			},
 
-			// upDate: (full_name, email, phone, address) => {
-			// 	fetch("https://assets.breatheco.de/apis/fake/contact/", {
-			// 		method: "POST",
-			// 		headers: {
-			// 			"Content-Type": "application/json"
-			// 		},
-			// 		body: JSON.stringify({
-			// 			full_name: full_name,
-			// 			email: email,
-			// 			agenda_slug: "Dcardigo",
-			// 			address: address,
-			// 			phone: phone
-			// 		})
-			// 	})
-			// 		.then(response => response.json())
-			// 		.then(data => console.log(data))
-			// 		.catch(error => console.log(error));
-			// }
+			upDate: (name, dir, tlf, mail, id) => {
+				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						full_name: name,
+						email: mail,
+						agenda_slug: "Dcardigo",
+						address: dir,
+						phone: tlf
+					})
+				})
+					.then(response => response.json())
+					.then(data => console.log(data))
+					.catch(error => console.log(error));
+			}
 		}
 	};
 };
