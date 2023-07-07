@@ -2,11 +2,16 @@ const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
 			//Your data structures, A.K.A Entities
-			contactos: []
+			contactos: [],
+			nombre: ""
 		},
 		actions: {
 			//(Arrow) Functions that update the Store
 			// Remember to use the scope: scope.state.store & scope.setState()
+
+			addName: name => {
+				setStore({ nombre: name });
+			},
 
 			getContactos: () => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/Dcardigo", {
@@ -51,6 +56,25 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(data => console.log(data))
 					.catch(error => console.log(error));
 			}
+
+			// upDate: (full_name, email, phone, address) => {
+			// 	fetch("https://assets.breatheco.de/apis/fake/contact/", {
+			// 		method: "POST",
+			// 		headers: {
+			// 			"Content-Type": "application/json"
+			// 		},
+			// 		body: JSON.stringify({
+			// 			full_name: full_name,
+			// 			email: email,
+			// 			agenda_slug: "Dcardigo",
+			// 			address: address,
+			// 			phone: phone
+			// 		})
+			// 	})
+			// 		.then(response => response.json())
+			// 		.then(data => console.log(data))
+			// 		.catch(error => console.log(error));
+			// }
 		}
 	};
 };

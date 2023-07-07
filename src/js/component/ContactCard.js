@@ -7,11 +7,6 @@ import { Context } from "../store/appContext";
 export const ContactCard = props => {
 	const { actions, store } = useContext(Context);
 
-	// const handleDelete = e => {
-	// 	e.preventDefault();
-	// 	actions.delContacto(props.id);
-	// };
-
 	const [state, setState] = useState({
 		//initialize state here
 	});
@@ -28,10 +23,8 @@ export const ContactCard = props => {
 							<i className="fas fa-pencil-alt mr-3" />
 						</button>
 						<button className="btn" onClick={() => props.onDelete()}>
-							{/* <button className="btn" onClick={handleDelete}> */}
 							<i className="fas fa-trash-alt" />
 						</button>
-						{/* {contacto} */}
 					</div>
 					<label className="name lead">{props.nombre}</label>
 					<br />
@@ -53,8 +46,6 @@ export const ContactCard = props => {
 						title=""
 					/>
 					<span className="text-muted small text-truncate">{props.email}</span>
-					<br />
-					<span className="text-muted small"></span>
 				</div>
 			</div>
 		</li>
@@ -69,10 +60,10 @@ ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
 	email: PropTypes.string,
-	// id: PropTypes.string,
 	address: PropTypes.string,
 	phone: PropTypes.string,
-	nombre: PropTypes.string
+	nombre: PropTypes.string,
+	id: PropTypes.string
 };
 
 /**
