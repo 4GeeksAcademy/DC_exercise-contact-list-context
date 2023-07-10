@@ -11,15 +11,14 @@ export const AddContact = () => {
 	const { store, actions } = useContext(Context);
 
 	const handlerSubmit = e => {
-		e.preventDefault(); //Evita que la página se recargue y se borren los estados.
+		e.preventDefault();
 		actions.addContacto(full_name, email, phone, address);
 		setFull_name("");
 		setEmail("");
 		setPhone("");
 		setAddress("");
 	};
-	// // actions.addName(full_name);
-	// console.log(store.nombre);
+
 	return (
 		<div className="container">
 			<div>

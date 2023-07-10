@@ -23,10 +23,7 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						{/* <button className="btn" to="/edit">
-							<i className="fas fa-pencil-alt mr-3" />
-						</button> */}
-						<Link className="btn btn-success" to="/edit" onClick={handlerContact}>
+						<Link className="btn" to="/edit" onClick={handlerContact}>
 							<i className="fas fa-pencil-alt mr-3" />
 						</Link>
 						<button className="btn" onClick={() => props.onDelete()}>

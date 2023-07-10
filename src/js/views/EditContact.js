@@ -10,7 +10,7 @@ export const EditContact = () => {
 	const [phone, setPhone] = useState(store.phone);
 
 	const handlerSubmit = e => {
-		e.preventDefault(); //Evita que la página se recargue y se borren los estados.
+		e.preventDefault();
 		actions.upDate(full_name, address, phone, email, store.id);
 		setFull_name("");
 		setEmail("");
